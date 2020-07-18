@@ -214,7 +214,7 @@ int minimax(int depth , bool isMaximizer)
         return bestScore;
     }
     //for Humans turn
-        if (isMaximizer)
+     else
     {
         int bestScore = 10000;
          for ( int i = 0 ; i<3 ; i++ )
