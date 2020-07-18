@@ -11,6 +11,11 @@ void bestMove();
 void disp_matrix();
 void rule();
 int minimax( int depth , bool isMaximizer);
+/* Checks for the winner for future turns
+return +10 if the computer 
+return -10 if the player wins 
+returns 1 if there is a tie 
+returns 0 if there are more spaces avaiable and no one wins*/
 int checkWinner()
 {
     int i , openSpot;
@@ -85,6 +90,7 @@ int main()
         return 0;
 }
 
+// initialises the matrix 
 void init_matrix()
 {
     int i, j;
@@ -92,6 +98,7 @@ void init_matrix()
     for(j=0; j<3; j++) matrix[i][j] = ' ';
 }
 
+//Display the matrix on the screen whenever required 
 void disp_matrix()
 {
     for (int i = 0 ; i<3 ; i++)
@@ -103,6 +110,7 @@ void disp_matrix()
     }
 }
 
+// Display the rule or raher the instrutions of the game 
 void rule()
 {
     cout << "You are cross and the computer is naughts. \nYou have to enter the co-ordinates of the shell each time.\nFor example co-ordinates 2  3  means second row and third coloumn.\n";
@@ -125,6 +133,7 @@ void get_player_move()
     }
 }
 
+// Check for the winner 
 char check(void)
 {
 int i ;
@@ -143,6 +152,7 @@ return matrix[0][2];
 return ' ';
 }
 
+//finds the best move for the computer oe better say  it implements the AI system  in the programme 
 void bestMove()
 {
     int bestScore = -100000 ;
@@ -169,6 +179,7 @@ void bestMove()
     matrix[bestMoveRow][bestMovecolumn] = 'O';
 }
 
+// Implements the algorithm
 int minimax(int depth , bool isMaximizer)
 {
     int bestMoveRow , bestMovecolumn ;
